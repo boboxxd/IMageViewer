@@ -86,7 +86,7 @@ void MainWindow::openfile(QString path)
 
 void MainWindow::open()
 {
-    QString path = QFileDialog::getOpenFileName(this, tr("Open Image"), ".", tr("Image Files(*.jpg *.JPG)"));
+    QString path = QFileDialog::getOpenFileName(this, tr("Open Image"), ".", tr("Image Files(*.jpg *.JPG *.png *.jpeg *.JPEG)"));
     if(!path.isEmpty())
     {
         openfile(path);
@@ -115,7 +115,7 @@ void MainWindow::opendir()
         sets.setValue("lastopendir",path);
 
         QStringList nameFilters;
-        nameFilters << "*.jpg" << "*.JPG";
+        nameFilters << "*.jpg" << "*.JPG"<<"*.png"<<"*.jpeg"<<"*.JPEG";
         QStringList files=QDir(path).entryList(nameFilters, QDir::Files|QDir::Readable, QDir::Name);
         if(files.isEmpty())
         {
